@@ -1,0 +1,54 @@
+﻿<form action="/Payment/Charge" method="post" id="payment-form">
+    <!-- Razorpay Fields -->
+    <input type="hidden" name="razorpayPaymentId" id="razorpay_payment_id" />
+    <input type="hidden" name="razorpayOrderId" id="razorpay_order_id" />
+    <input type="hidden" name="razorpaySignature" id="razorpay_signature" />
+
+    <!-- Other Payment Form Fields -->
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="amount">Amount</label>
+    <input type="text" id="amount" name="amount" required>
+
+    <button type="submit" id="razorpay-button">Submit Payment</button>
+</form>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        key: '@ViewBag.RazorpayKeyId',
+        amount: 0, // The amount will be set dynamically
+        name: '', // The name will be set dynamically
+        description: '', // The description will be set dynamically
+        handler: function(response) {
+            $('#razorpay_payment_id').val(response.razorpay_payment_id);
+            $('#razorpay_order_id').val(response.razorpay_order_id);
+            $('#razorpay_signature').val(response.razorpay_signature);
+            $('#payment-form').submit();
+        },
+        prefill: {
+            name: 'John Doe',
+            email: 'johndoe@example.com',
+            phone: '+1234567890'
+        }
+    };
+
+    $(document).ready(function() {
+        $('#razorpay-button').click(function(e) {
+            e.preventDefault();
+            options.amount = $('#amount').val() * 100; // Convert amount to paise
+            options.name = $('#name').val();
+            options.description = $('#amount').val() + ' Payment';
+
+            var rzp = new Razorpay(options);
+            rzp.open();
+        });
+    });
+</script>

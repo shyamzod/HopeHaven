@@ -12,9 +12,15 @@
                     <h5 class="card-title text-center">@item.Name</h5>
                     <p class="card-text">@item.Description</p>
                     <h3 class="card-title">@item.Degree</h3>
-                    <a href="/Home/BookSession?Id=@item.Id" class="btn btn-primary d-flex justify-content-center">@item.Price</a>
+                    <a href="/Home/BookSession?Id=@item.Id" class="btn btn-primary d-flex justify-content-center">Book Session  @item.Price/-</a>
                 </div>
             </div>
         </div>
     }
 </div>
+<script>
+    $(document).ready(function () {
+        alert("This is great");
+        console.log("What is up");
+    });
+</script>
