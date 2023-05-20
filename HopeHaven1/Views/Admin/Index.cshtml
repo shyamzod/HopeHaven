@@ -1,0 +1,28 @@
+﻿@model HopeHaven1.Models.Therapists
+@{
+    ViewBag.Title = "Index";
+}
+<h2 style="text-align:center;">Add Therapist</h2>
+
+<div style="display:flex;justify-content:center;align-content:center;">
+    @using (Html.BeginForm("AddTherapist", "Admin", FormMethod.Post))
+    {
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter Therapist Name" })
+        @Html.ValidationMessageFor(model => model.Name)
+
+        @Html.LabelFor(model => model.Degree)
+        @Html.TextBoxFor(model => model.Degree, new { @class = "form-control", placeholder = "Enter Therapist Degree" })
+        @Html.ValidationMessageFor(model => model.Degree)
+
+        @Html.LabelFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Enter Therapist Description" })
+        @Html.ValidationMessageFor(model => model.Description)
+
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control", placeholder = "Enter Therapist Price" })
+        @Html.ValidationMessageFor(model => model.Price)
+
+        <input type="submit" style="margin-top:2%" value="Add Therapist" class="btn btn-success" />
+    }
+</div>

@@ -1,0 +1,48 @@
+﻿@model HopeHaven1.Models.Therapists
+@{
+    ViewBag.Title = "BookSession";
+}
+<h2>Booking Session</h2>
+@if (Model != null)
+{
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title text-center">@Model.Name</h5>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title text-center">@Model.Name</h5>
+            <p class="card-text">@Model.Description</p>
+        </div>
+    </div>
+
+    <div>
+        <form action="/Home/GetOtp" class="d-flex justify-content-center mt-5" method="post">
+            <div class="form-outline mb-4 mx-3">
+                <label for="PhoneNo" class="form-label">Phone No</label>
+                <input type="number" class="form-control" name="PhoneNo"/>
+            </div>
+            <div class="form-outline mt-4 mx-3">
+                <button type="submit" class="btn btn-success" id="getotpbtn">Get OTP</button>
+            </div>
+        </form>
+        <form action="/Home/VerifyOtp?enteredOtp=" 456" class="d-flex justify-content-center mt-5" method="post" id="verifyotpform">
+            <div class="form-outline mb-4 mx-3">
+                <label for="OTP" class="form-label">OTP</label>
+                <input type="number" class="form-control" name="OTP" />
+            </div>
+            <div class="form-outline mt-4 mx-3">
+                <button type="submit" class="btn btn-primary">Submit OTP</button>
+            </div>
+        </form>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $('#verifyotpform').hide();
+    });
+    $('#getotpbtn').click(function () {
+        debugger;
+        $('#verifyotpform').show();
+    });
+
+</script>

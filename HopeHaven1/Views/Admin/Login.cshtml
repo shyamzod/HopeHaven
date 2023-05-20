@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<h2 class="text-center">Login</h2>
+<div class="tab-content d-flex justify-content-center mt-3">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+        <form action="/Admin/Login" method="post">
+            <div class="form-outline mb-4">
+                <input type="text" id="loginName" name="UserName" class="form-control" />
+                <label class="form-label" for="loginName">Email or username</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="password" id="loginPassword" name="Password" class="form-control" />
+                <label class="form-label" for="loginPassword">Password</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+        </form>
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <p class="text-danger">@ViewBag.ErrorMessage</p>
+        }
+    </div>
+</div>

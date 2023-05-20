@@ -1,0 +1,20 @@
+﻿@model List<HopeHaven1.Models.Therapists>
+@{
+    ViewBag.Title = "Home";
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card col-md-2" style="width: 18rem;">
+                <img class="card-img-top img-fluid" src="~/Images/shyam_zod.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title text-center">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <h3 class="card-title">@item.Degree</h3>
+                    <a href="/Home/BookSession?Id=@item.Id" class="btn btn-primary d-flex justify-content-center">@item.Price</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
