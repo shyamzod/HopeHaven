@@ -14,6 +14,8 @@ namespace HopeHaven1.Models
 
         public DbSet<Therapists> therapists { get; set; }
         public DbSet<AdminLogin> AdminLogins { get; set; }
+        public DbSet<Patient> Patients { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

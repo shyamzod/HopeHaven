@@ -48,11 +48,14 @@ namespace HopeHaven1.Controllers
             Session["PhoneNo"] = PhoneNo;
             TempData["OTP"] = PhoneNo;
             TempData["PhoneNo"] = PhoneNo;
-            return RedirectToAction("BookSession");
+
+            // Return the JSON response
+            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
         }
 
+
         [HttpPost]
-        public ActionResult VerifyOtp(string enteredOtp,string PhoneNo)
+        public ActionResult VerifyOtp(string enteredOtp, string PhoneNo)
         {
             bool isValidOtp = false;
             if (enteredOtp.Equals(Session["OTP"]) && PhoneNo.Equals(Session["PhoneNo"]))
@@ -62,13 +65,18 @@ namespace HopeHaven1.Controllers
 
             if (isValidOtp)
             {
-                return RedirectToAction("Index", "Payment");
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
             }
             else
             {
                 ModelState.AddModelError("", "Invalid OTP");
-                return View("BookSession");
+                return Json(new { success = false, errorMessage = "Invalid OTP" });
             }
+        }
+        [HttpPost]
+        public ActionResult AddPatient(Patient patient)
+        {
+            return RedirectToAction("Index", "Payment");
         }
     }
 }

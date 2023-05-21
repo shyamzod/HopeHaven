@@ -368,9 +368,14 @@
     <Compile Include="Migrations\202305191929506_AdminLoginTableAdded1.Designer.cs">
       <DependentUpon>202305191929506_AdminLoginTableAdded1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305211922416_PatientClassAdded.cs" />
+    <Compile Include="Migrations\202305211922416_PatientClassAdded.Designer.cs">
+      <DependentUpon>202305211922416_PatientClassAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Therapists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\OtpService.cs" />
@@ -405,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305191929506_AdminLoginTableAdded1.resx">
       <DependentUpon>202305191929506_AdminLoginTableAdded1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305211922416_PatientClassAdded.resx">
+      <DependentUpon>202305211922416_PatientClassAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
