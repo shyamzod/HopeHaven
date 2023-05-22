@@ -40,12 +40,20 @@
 </div>
 <div id="PatientDetails">
     <h2 class="text-center mt-5 mb-4">Patient Details</h2>
-    <form action="/Home/AddPatient" method="post" id="verifyotpform1">
+    <form action="/Payment/AddPatient" method="post" id="verifyotpform1">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="Name" class="form-label">Name</label>
                     <input type="text" class="form-control" name="Name" />
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="Email" />
                 </div>
             </div>
         </div>
@@ -69,6 +77,8 @@
                 <div class="form-group">
                     <label for="Age" class="form-label">Age</label>
                     <input type="number" class="form-control" name="Age" />
+                    <input type="hidden" id="Amount" name="Amount" />
+                    <input type="hidden" id="hdnphoneNo" name="PhoneNo" />
                 </div>
             </div>
         </div>
@@ -126,6 +136,10 @@
             success: function (response) {
                 if (response.success) {
                     // Redirect to the payment page
+                    var price = @Model.Price;
+                    $('#Amount').val(price);
+                    var phoneno = $('#phoneNo').val();
+                    $('#hdnphoneNo').val(phoneno);
                     $('#PatientDetails').show();
                 } else {
                     // Display error message

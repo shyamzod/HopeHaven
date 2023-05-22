@@ -372,6 +372,14 @@
     <Compile Include="Migrations\202305211922416_PatientClassAdded.Designer.cs">
       <DependentUpon>202305211922416_PatientClassAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305221456059_changeinModelclassproperties.cs" />
+    <Compile Include="Migrations\202305221456059_changeinModelclassproperties.Designer.cs">
+      <DependentUpon>202305221456059_changeinModelclassproperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305222037224_paymentpendingpropaddedinPatientmodel.cs" />
+    <Compile Include="Migrations\202305222037224_paymentpendingpropaddedinPatientmodel.Designer.cs">
+      <DependentUpon>202305222037224_paymentpendingpropaddedinPatientmodel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -413,6 +421,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305211922416_PatientClassAdded.resx">
       <DependentUpon>202305211922416_PatientClassAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305221456059_changeinModelclassproperties.resx">
+      <DependentUpon>202305221456059_changeinModelclassproperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305222037224_paymentpendingpropaddedinPatientmodel.resx">
+      <DependentUpon>202305222037224_paymentpendingpropaddedinPatientmodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

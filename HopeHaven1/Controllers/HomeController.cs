@@ -73,10 +73,5 @@ namespace HopeHaven1.Controllers
                 return Json(new { success = false, errorMessage = "Invalid OTP" });
             }
         }
-        [HttpPost]
-        public ActionResult AddPatient(Patient patient)
-        {
-            return RedirectToAction("Index", "Payment");
-        }
     }
 }

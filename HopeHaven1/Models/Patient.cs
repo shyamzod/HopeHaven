@@ -18,5 +18,13 @@ namespace HopeHaven1.Models
         public string Age { get; set; }
 
         public string Gender { get; set; }
+
+        public string Email { get; set; }
+
+        public string PhoneNo { get; set; }
+
+        public string  Amount { get; set; }
+
+        public  Boolean IsPaymentDone { get; set; }
     }
 }
