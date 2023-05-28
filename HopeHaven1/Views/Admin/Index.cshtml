@@ -5,11 +5,27 @@
 <h2 style="text-align:center;">Add Therapist</h2>
 
 <div style="display:flex;justify-content:center;align-content:center;">
-    @using (Html.BeginForm("AddTherapist", "Admin", FormMethod.Post))
+    @using (Html.BeginForm("AddTherapist", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.LabelFor(model => model.Name)
         @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter Therapist Name" })
         @Html.ValidationMessageFor(model => model.Name)
+
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type="email",placeholder = "Enter Therapist PhoneNo" })
+        @Html.ValidationMessageFor(model => model.Email)
+
+        @Html.LabelFor(model => model.PhoneNo)
+        @Html.TextBoxFor(model => model.PhoneNo, new { @class = "form-control",type="number", placeholder = "Enter Therapist Name" })
+        @Html.ValidationMessageFor(model => model.PhoneNo)
+
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control", id = "enterpwd", placeholder = "Enter Password" })
+        @Html.ValidationMessageFor(model => model.Password)
+
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control", id = "confirmpwds", placeholder = "Confirm Password" })
+        @Html.ValidationMessageFor(model => model.Password)
 
         @Html.LabelFor(model => model.Degree)
         @Html.TextBoxFor(model => model.Degree, new { @class = "form-control", placeholder = "Enter Therapist Degree" })
@@ -19,9 +35,14 @@
         @Html.TextAreaFor(model => model.Description, new { @class = "form-control", placeholder = "Enter Therapist Description" })
         @Html.ValidationMessageFor(model => model.Description)
 
+
         @Html.LabelFor(model => model.Price)
         @Html.TextBoxFor(model => model.Price, new { @class = "form-control", placeholder = "Enter Therapist Price" })
         @Html.ValidationMessageFor(model => model.Price)
+
+        @Html.LabelFor(model => model.profilePhoto)
+        @Html.TextBoxFor(model => model.profilePhoto, new { @class = "form-control", type = "file", placeholder = "Enter Therapist Price" })
+        @Html.ValidationMessageFor(model => model.profilePhoto)
 
         <input type="submit" style="margin-top:2%" value="Add Therapist" class="btn btn-success" />
     }

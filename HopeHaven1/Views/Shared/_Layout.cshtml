@@ -1,13 +1,14 @@
-﻿<html>
+﻿@using System.Web.Mvc
+@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.8.3.js"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/jquery-3.6.4.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mt-0 px-5 py-3">
@@ -27,10 +28,16 @@
                     <a class="nav-link" href="#">Services</a>
                 </li>
             </ul>
+            <div>
+                <a href="/Home/TherapistLogin" class="btn btn-light">Therapist Login</a>
+            </div>
         </div>
     </nav>
-    <div class="container body-content" style="margin-top:4%" ;>
+    <div class="container body-content" style="margin-top: 80px;">
         @RenderBody()
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

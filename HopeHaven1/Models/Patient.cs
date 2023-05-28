@@ -26,5 +26,10 @@ namespace HopeHaven1.Models
         public string  Amount { get; set; }
 
         public  Boolean IsPaymentDone { get; set; }
+
+        [ForeignKey("Therapist")]
+        public int? TherapistId { get; set; }
+
+        public Therapists Therapist { get; set; }
     }
 }

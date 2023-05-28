@@ -1,4 +1,5 @@
 ﻿using HopeHaven1.Models;
+using HopeHaven1.Models.ViewModels;
 using HopeHaven1.Utility;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WpfApp2.Utility;
 
 namespace HopeHaven1.Controllers
 {
@@ -72,6 +74,24 @@ namespace HopeHaven1.Controllers
                 ModelState.AddModelError("", "Invalid OTP");
                 return Json(new { success = false, errorMessage = "Invalid OTP" });
             }
+        }
+        public ActionResult TherapistLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult TherapistLogin(TherapistViewModel therapist)
+        {
+            PasswordHash phash = new PasswordHash();
+            therapist.Password = phash.ComputeHash(therapist.Password);
+            Therapists therap =_context.therapists.Where(o => o.Name == therapist.NameorEmail || o.Email == therapist.NameorEmail && o.Password == therapist.Password).FirstOrDefault();
+            if(therap!=null)
+            {
+                List<Patient> patients = _context.Patients.Where(patient => patient.TherapistId == therap.Id).ToList();
+                return View("TherapistIndex", patients);
+            }
+            ViewBag.ErrorMessage = "Invalid UserNameorEmail or Password !!";
+            return View();
         }
     }
 }

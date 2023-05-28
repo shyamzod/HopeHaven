@@ -380,13 +380,31 @@
     <Compile Include="Migrations\202305222037224_paymentpendingpropaddedinPatientmodel.Designer.cs">
       <DependentUpon>202305222037224_paymentpendingpropaddedinPatientmodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305272132009_foreignkeyaddedinpatients.cs" />
+    <Compile Include="Migrations\202305272132009_foreignkeyaddedinpatients.Designer.cs">
+      <DependentUpon>202305272132009_foreignkeyaddedinpatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305272155499_passwordfieldaddedfortherapistsclass.cs" />
+    <Compile Include="Migrations\202305272155499_passwordfieldaddedfortherapistsclass.Designer.cs">
+      <DependentUpon>202305272155499_passwordfieldaddedfortherapistsclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305280855015_addedprofilepicpropfortherapist.cs" />
+    <Compile Include="Migrations\202305280855015_addedprofilepicpropfortherapist.Designer.cs">
+      <DependentUpon>202305280855015_addedprofilepicpropfortherapist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305281214228_EmailandPhoneNopropaddedforTherapist.cs" />
+    <Compile Include="Migrations\202305281214228_EmailandPhoneNopropaddedforTherapist.Designer.cs">
+      <DependentUpon>202305281214228_EmailandPhoneNopropaddedforTherapist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminLogin.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Therapists.cs" />
+    <Compile Include="Models\ViewModels\TherapistViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\OtpService.cs" />
+    <Compile Include="Utility\PasswordHash.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -399,6 +417,8 @@
     <Content Include="Scripts\jquery-3.6.4.min.map" />
     <Content Include="Views\Home\Payment.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Home\TherapistLogin.cshtml" />
+    <Content Include="Views\Home\TherapistIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -427,6 +447,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305222037224_paymentpendingpropaddedinPatientmodel.resx">
       <DependentUpon>202305222037224_paymentpendingpropaddedinPatientmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305272132009_foreignkeyaddedinpatients.resx">
+      <DependentUpon>202305272132009_foreignkeyaddedinpatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305272155499_passwordfieldaddedfortherapistsclass.resx">
+      <DependentUpon>202305272155499_passwordfieldaddedfortherapistsclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305280855015_addedprofilepicpropfortherapist.resx">
+      <DependentUpon>202305280855015_addedprofilepicpropfortherapist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305281214228_EmailandPhoneNopropaddedforTherapist.resx">
+      <DependentUpon>202305281214228_EmailandPhoneNopropaddedforTherapist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

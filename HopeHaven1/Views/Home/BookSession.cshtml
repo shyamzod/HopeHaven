@@ -41,6 +41,7 @@
 <div id="PatientDetails">
     <h2 class="text-center mt-5 mb-4">Patient Details</h2>
     <form action="/Payment/AddPatient" method="post" id="verifyotpform1">
+        <input type="hidden" id="therapistId" name="TherapistId"/>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="form-group">
@@ -96,6 +97,7 @@
     $(document).ready(function () {
         $('#VerifyForm').hide();
         $('#PatientDetails').hide();
+        $('#therapistId').val(@Model.Id);
     });
     $('#getOtpform').submit(function (e) {
         e.preventDefault(); // Prevent the default form submission

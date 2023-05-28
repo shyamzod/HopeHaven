@@ -7,12 +7,12 @@
     {
         <div class="col-md-3">
             <div class="card col-md-2" style="width: 18rem;">
-                <img class="card-img-top img-fluid" src="~/Images/shyam_zod.jpg" alt="Card image cap">
-                <div class="card-body">
+                <img class="card-img-top img-fluid" src="data:image;base64,@item.profilePhoto" style="height:200px" alt="Card image cap">
+                <div class="card-body" style="height: 200px;">
                     <h5 class="card-title text-center">@item.Name</h5>
                     <p class="card-text">@item.Description</p>
                     <h3 class="card-title">@item.Degree</h3>
-                    <a href="/Home/BookSession?Id=@item.Id" class="btn btn-primary d-flex justify-content-center">Book Session  @item.Price/-</a>
+                    <a href="/Home/BookSession?Id=@item.Id" class="btn btn-dark d-flex justify-content-center mb-0">Book Session  @item.Price/-</a>
                 </div>
             </div>
         </div>
@@ -20,5 +20,6 @@
 </div>
 <script>
     $(document).ready(function () {
+        $("a[href='/Home/Index']").attr("id", "active");
     });
 </script>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using WpfApp2.Utility;
 
 namespace HopeHaven1.Controllers
 {
@@ -43,6 +44,21 @@ namespace HopeHaven1.Controllers
         {
             try
             {
+                List<string> photobase24strings = new List<string>();
+                if (Request.Files.Count > 0)
+                {
+                    for (int i = 0; i < Request.Files.Count; i++)
+                    {
+                        var photo1 = Request.Files[i];
+                        var imgbytes = new Byte[photo1.ContentLength];
+                        photo1.InputStream.Read(imgbytes, 0, photo1.ContentLength);
+                        var base64string = Convert.ToBase64String(imgbytes, 0, imgbytes.Length);
+                        photobase24strings.Add(base64string);
+                    }
+                }
+                therapist.profilePhoto = photobase24strings[0];
+                PasswordHash phash = new PasswordHash();
+                therapist.Password = phash.ComputeHash(therapist.Password);
                 dbContext.therapists.Add(therapist);
                 dbContext.SaveChanges();
             }
